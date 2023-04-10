@@ -1,0 +1,22 @@
+
+
+{
+   "service": "todo-api-aws-lambda",
+   "frameworkVersion": "3.29.0",
+   "provider": {
+      "apiGateway": {
+         "shouldStartNameWithService": true
+      },
+      "environment": {
+         "MONGODB_URI": "mongodb+srv://user2:1wTMG6NKFuoOY5ir@cluster0.itv5tnw.mongodb.net/?retryWrites=true&w=majority"
+
+        
+      },
+      "lambdaHashingVersion": 20201221,
+      "name": "aws",
+      "region": "eu-central-1",
+      "runtime": "nodejs14.x",
+      "stage": "dev"
+   },
+   "functions": ["${file(./todos/functions.json)}"]
+}

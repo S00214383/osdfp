@@ -1,0 +1,94 @@
+
+ <div  >
+<!-- <div class=" container ">
+
+  <input type="search" #title class="form-control form-control-dark text-bg-white" placeholder="Search..." aria-label="Search" >
+
+
+  <button (click)="getByTitle(title.value)" class="container col-6 btn btn-primary">Search</button>
+
+</div> -->
+<div class="d-flex justify-content-sm-center bg-light">
+<div class="d-flex justify-content-md-center col-6 bg-light">
+
+  <input type="search"  #title class="form-control rounded " placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+  <button (click)="getByTitle(title.value)" type="button" class="btn btn-outline-primary">search</button>
+</div>
+</div>
+  
+
+
+
+  <!-- <div class="d-flex justify-content-center bg-light" >
+    <div class="d-flex justify-content-center bg-light" >
+    
+    
+    
+     <div class="d-flex ">
+      <button (click)="openAddalbum()" *ngIf="!showalbumForm" class="btn btn-sm btn-outline-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">Add album</button>
+    
+    
+      <button (click)="openEditalbum()" *ngIf="!showalbumForm" [disabled]="!currentalbum"
+         class="btn btn-lg btn-outline-primary ">Edit album</button>
+     
+       <button (click)="deletealbum()" *ngIf="!showalbumForm" [disabled]="!currentalbum"
+         class="btn btn-danger">Delete album</button> 
+    
+     
+        </div>
+      </div>
+      </div> -->
+
+
+      <div class="d-flex justify-content-center bg-light">
+        <div class="d-flex justify-content-center">
+          <div class="d-flex">
+            <button (click)="openAddalbum()" *ngIf="!showalbumForm" class="btn btn-sm btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Add album</button>
+      
+            <button (click)="openEditalbum()" *ngIf="!showalbumForm" [disabled]="!currentalbum" class="btn btn-lg btn-outline-primary me-2">Edit album</button>
+      
+            <button (click)="deletealbum()" *ngIf="!showalbumForm" [disabled]="!currentalbum" class="btn btn-danger">Delete album</button>
+          </div>
+        </div>
+      </div>
+      
+
+  <!-- <div *ngIf="message" role="alert">
+    <strong>Opps</strong> {{message}}
+    <button type="button"  class="btn-close" (click)="dismissAlert()" aria-label="Close"></button>
+  </div> -->
+
+
+
+
+ 
+  <app-album-form *ngIf="showalbumForm" (albumFormClose)="albumFormClose($event)" [album]="currentalbum">
+
+</app-album-form> 
+<app-album-details   *ngIf="currentalbum && !showalbumForm" [album]="currentalbum"></app-album-details>
+
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" *ngIf=" !showalbumForm ">
+
+  
+    <app-album-row class="col-lg-3"
+    
+    *ngFor="let b of albumList" [album]="b" (click)='clicked(b)'
+
+    [class.bg-info]="isSelected(b)" [class.text-black]="isSelected(b)"
+    
+    >  
+  
+  </app-album-row>
+  
+</div>
+</div>
+
+ </div>
+
+
+
+
+

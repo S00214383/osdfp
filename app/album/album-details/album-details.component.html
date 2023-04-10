@@ -1,0 +1,77 @@
+
+<!-- <div > 
+    <div> <h3> Rudy example album Details 
+        <div></div>
+        Title: {{album?.title}} <div>
+            ID: {{album?._id}}
+            <div></div>
+       Author Name: {{album?.artist?.artistName}}</div>
+       Edition: {{album?.title}}
+       <div></div>
+
+       <div></div>
+       Year Written: {{album?.year}}         
+    </h3> 
+
+</div> -->
+<!-- class="container-fluid col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0s" -->
+
+   
+ <!-- <div class="d-flex  justify-content-center">
+    <div class="card" style="width: 18rem;">
+       
+        <div class="card-body justify-content-center">
+          <h5 class="card-title">{{album?.title}}</h5>
+          <p class="card-text">ID: {{album?._id}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Artist: {{album?.artist?.artistName}}</li>
+          <li class="list-group-item">Year Release: {{album?.year}}</li>
+          <li class="list-group-item">Record Company: {{album?.artist?.recCompany}}</li>
+          <li class="list-group-item">Music Genre: {{album?.artist?.genre}}</li>
+        
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <a href="#" class="card-link">Another link</a>
+        </div>
+      </div>
+    </div> -->
+ 
+    
+
+
+<div class="container mt-5 mb-5">
+  <div class="d-flex justify-content-center row">
+      <div class="col-md-10">
+          <div class="row p-2 bg-white border rounded">
+              <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="{{album?.albumImage}}"></div>
+              <div class="col-md-6 mt-1">
+                  <h5>{{album?.title}} by {{album?.artist?.artistName}}</h5>
+                  <div class="d-flex flex-row">
+                      <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star">
+
+                      </i></div><span>Id: {{album?._id}}</span>
+                      
+                  </div>
+                <span>Details: {{album?.albumDesc}}</span>
+                
+
+             
+                  <div class="mt-1 mb-1 spec-1"><span>Year: {{album?.year}}</span><span class="dot"></span><span></span><span class="dot"></span><span><br></span></div>
+                  <div class="mt-1 mb-1 spec-1"><span>Music Genre: {{album?.artist?.genre}}</span><span class="dot"></span><span></span><span class="dot"></span><span><br></span></div>
+                  <p class="text-justify text-truncate para mb-0">Record Company: {{album?.artist?.recCompany}}<br><br></p>
+              </div>
+              <div class="align-items-center align-content-center col-md-3 border-left mt-1">
+                  <div class="d-flex flex-row align-items-center">
+                      <h4 class="mr-1">$13.99</h4><span class="strike-text">$20.99</span>
+                  </div>
+
+                  <h6 class="text-success">Free shipping</h6>
+                  <!-- <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Edit</button>
+                    <button  (click)="deletealbum()" class="btn btn-danger btn-sm mt-2" type="button">Delete</button></div> -->
+              </div>
+          </div>
+    
+
+

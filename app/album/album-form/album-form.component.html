@@ -1,0 +1,59 @@
+
+
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+ <h2>Please Enter Data about an album</h2>
+</div>
+<div class="container col-6 justify-content-center">
+<button type="button" [swal]="['Oops!', 'album not edited!', 'warning']" class="btn-close justify-content-end" aria-label="Close" (click)="closeForm()"></button>
+
+<form [formGroup]="albumForm" (ngSubmit)="onSubmit()" class="form-group" class="container-md">
+
+    
+    <div class="mb-3">
+        <label for="title"> Title</label>
+        <input id="title" type="text" formControlName="title" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label for="year"> Year</label>
+        <input id="year" type="number" formControlName="year" class="form-control">
+    </div>
+
+    <div class="mb-3">
+        <label for="albumImage">Image url</label>
+        <input id="albumImage" type="url" formControlName="albumImage" class="form-control">
+    </div>
+    
+    <div class="mb-3">
+        <label for="albumDesc">Album Description</label>
+        <input id="albumDesc" type="text"  formControlName="albumDesc" class="form-control">
+    </div>
+
+    <div formGroupName="artist">
+        <legend>Author</legend>
+        <div class="mb-3">
+            <label for="artistName">Artist Name</label>
+            <input id="artistName" type="text" formControlName="artistName" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="genre">Music Genre</label>
+            <input id="genre" type="text" formControlName="genre" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="recCompany">Record Company Name</label>
+            <input id="recCompany" type="text" formControlName="recCompany" class="form-control">
+        </div>
+
+        
+    </div>
+   
+
+    <button type="submit" class="btn btn-primary justify-content-end" [disabled]="!albumForm.valid">Submit</button>
+
+    <div *ngIf="title?.invalid && title?.touched" class="alert alert-danger">
+        Title is required and must be at least 4 letters
+    </div>
+    
+    
+</form>
+
+</div>
