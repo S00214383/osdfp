@@ -1,14 +1,20 @@
+# need to use the specific version of node that is dist is built 
+FROM node:16.16.0 AS builder
 
-# Use nginx to serve the application ##
-FROM nginx:alpine
+WORKDIR /clientCA2
 
-## Remove default nginx website  
-RUN rm -rf /usr/share/nginx/html/*
+COPY package*.json ./
 
-## Copy over the artifacts in dist folder to default nginx public folder  
-COPY . app.component.html
+RUN npm install --legacy-peer-deps
 
+COPY . .
 
+RUN npm run build
 
-## nginx will run in the forground  
-CMD [ "nginx", "-g", "daemon off;" ]
+FROM nginx:latest
+
+COPY --from=builder /clientCA2/dist/clientCA2 /usr/share/nginx/html
+
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'
